@@ -20,12 +20,14 @@ export function AddCandidateForm({ jobId }: AddCandidateFormProps) {
 
     async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault();
+
+        const form = e.currentTarget;
         setLoading(true);
 
         try {
-            const formData = new FormData(e.currentTarget);
+            const formData = new FormData(form);
             await analyzeAndCreateCandidate(jobId, formData);
-            e.currentTarget.reset();
+            form.reset();
             setExpanded(false);
             alert("Candidate analyzed and added successfully!");
         } catch (error) {

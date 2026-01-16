@@ -3,7 +3,7 @@
 import { createClient } from '@/lib/supabase/server';
 import { revalidatePath } from 'next/cache';
 import { generateObject } from 'ai';
-import { google } from '@ai-sdk/google'; // Use Google instead of OpenAI
+import { google } from '@ai-sdk/google';
 import { z } from 'zod';
 
 export async function analyzeAndCreateCandidate(jobId: string, formData: FormData) {
@@ -24,7 +24,7 @@ export async function analyzeAndCreateCandidate(jobId: string, formData: FormDat
 
     // 2. Use Gemini to get Structured JSON
     const { object: analysis } = await generateObject({
-        model: google('gemini-1.5-flash'), // Gemini's fastest, free-tier friendly model
+        model: google("gemini-3-flash-preview"),
         schema: z.object({
             match_score: z.number().min(0).max(100),
             ai_summary: z.string(),

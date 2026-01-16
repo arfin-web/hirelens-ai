@@ -26,14 +26,14 @@ export function CreateJobDialog() {
     async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault();
 
-        const form = e.currentTarget; // ✅ capture before await
+        const form = e.currentTarget;
         setLoading(true);
 
         try {
             const formData = new FormData(form);
             await createJob(formData);
             setOpen(false);
-            form.reset();               // ✅ safe
+            form.reset();
         } catch (error) {
             console.error("Failed to create job:", error);
             alert("Failed to create job. Please try again.");
