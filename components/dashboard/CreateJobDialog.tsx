@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useAuth } from "@clerk/nextjs";
 import { Button } from "@/components/ui/button";
 import {
     AlertDialog,
@@ -21,6 +22,7 @@ import { Add01Icon } from "@hugeicons/core-free-icons";
 import { toast } from "react-toastify";
 
 export function CreateJobDialog() {
+    const { userId } = useAuth();
     const [open, setOpen] = useState(false);
     const [loading, setLoading] = useState(false);
 
@@ -31,8 +33,9 @@ export function CreateJobDialog() {
         setLoading(true);
 
         try {
+            if (!userId) throw new Error("Unauthorized");
             const formData = new FormData(form);
-            await createJob(formData);
+            await createJob(userId, formData);
             setOpen(false);
             form.reset();
             toast.success("Job posted successfully!");

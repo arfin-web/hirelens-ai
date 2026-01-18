@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { useAuth } from "@clerk/nextjs";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import {
@@ -34,6 +35,7 @@ interface JobCardProps {
 }
 
 export function JobCard({ job }: JobCardProps) {
+    const { userId } = useAuth();
     const [deleting, setDeleting] = useState(false);
 
     async function handleDelete() {
@@ -41,7 +43,8 @@ export function JobCard({ job }: JobCardProps) {
 
         setDeleting(true);
         try {
-            await deleteJob(job.id);
+            if (!userId) throw new Error("Unauthorized");
+            await deleteJob(userId, job.id);
             toast.success("Job deleted successfully");
         } catch (error: unknown) {
             console.error("Failed to delete job:", error);

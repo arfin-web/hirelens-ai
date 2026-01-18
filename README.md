@@ -5,6 +5,7 @@ Hirelens AI is a modern, AI-powered recruitment platform designed to streamline 
 ## ✨ Key Features
 
 - **AI-Powered Candidate Ranking**: Instantly rank candidates based on their match percentage with the job requirements.
+- **Bulk PDF Resume Upload**: Upload up to 10 PDF resumes at once. AI automatically extracts candidate details and performs analysis using Gemini 1.5 Flash.
 - **Intelligent Resume Analysis**: Detailed AI summaries of candidate strengths, experience, and potential skill gaps.
 - **Recruitment Dashboard**: An intuitive overview of all your job postings, candidate pipelines, and key recruitment metrics.
 - **Seamless Candidate Management**: Easily add, track, and manage candidates for multiple job roles.
@@ -18,6 +19,7 @@ Hirelens AI is a modern, AI-powered recruitment platform designed to streamline 
 - **Authentication**: [Clerk](https://clerk.com/)
 - **Database & Backend**: [Supabase](https://supabase.com/)
 - **AI Integration**: [Google Gemini AI](https://deepmind.google/technologies/gemini/) via [Vercel AI SDK](https://sdk.vercel.ai/)
+- **PDF Processing**: [pdfjs-dist](https://github.com/mozilla/pdf.js) for client-side text extraction
 - **Icons**: [Hugeicons](https://hugeicons.com/)
 
 ## 🚀 Getting Started

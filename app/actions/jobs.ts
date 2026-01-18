@@ -1,12 +1,10 @@
 'use server';
 
-import { auth } from '@clerk/nextjs/server';
 import { createClient } from '@/lib/supabase/server';
 import { revalidatePath } from 'next/cache';
 
 // CREATE
-export async function createJob(formData: FormData) {
-    const { userId } = await auth();
+export async function createJob(userId: string, formData: FormData) {
     if (!userId) throw new Error('Unauthorized');
 
     const supabase = await createClient();
@@ -30,8 +28,7 @@ export async function createJob(formData: FormData) {
 }
 
 // UPDATE
-export async function updateJob(jobId: string, formData: FormData) {
-    const { userId } = await auth();
+export async function updateJob(userId: string, jobId: string, formData: FormData) {
     if (!userId) throw new Error('Unauthorized');
 
     const supabase = await createClient();
@@ -53,8 +50,7 @@ export async function updateJob(jobId: string, formData: FormData) {
 }
 
 // DELETE
-export async function deleteJob(jobId: string) {
-    const { userId } = await auth();
+export async function deleteJob(userId: string, jobId: string) {
     if (!userId) throw new Error('Unauthorized');
 
     const supabase = await createClient();

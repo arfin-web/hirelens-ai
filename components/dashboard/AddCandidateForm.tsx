@@ -10,6 +10,7 @@ import { analyzeAndCreateCandidate } from "@/app/actions/candidates";
 import { HugeiconsIcon } from "@hugeicons/react";
 import { UserAdd01Icon } from "@hugeicons/core-free-icons";
 import { toast } from "react-toastify";
+import { BulkUploadDialog } from "./BulkUploadDialog";
 
 interface AddCandidateFormProps {
     jobId: string;
@@ -42,10 +43,13 @@ export function AddCandidateForm({ jobId }: AddCandidateFormProps) {
 
     if (!expanded) {
         return (
-            <Button onClick={() => setExpanded(true)} size="lg" className="mb-6">
-                <HugeiconsIcon icon={UserAdd01Icon} className="mr-2 w-4 h-4" />
-                Add Candidate
-            </Button>
+            <div className="flex gap-4 mb-6">
+                <Button onClick={() => setExpanded(true)} size="lg">
+                    <HugeiconsIcon icon={UserAdd01Icon} className="mr-2 w-4 h-4" />
+                    Add Candidate
+                </Button>
+                <BulkUploadDialog jobId={jobId} />
+            </div>
         );
     }
 
