@@ -20,6 +20,9 @@ export const metadata: Metadata = {
   description: "AI-powered recruitment platform to streamline your hiring process.",
 };
 
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -32,6 +35,7 @@ export default function RootLayout({
           className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         >
           {children}
+          <ToastContainer position="bottom-right" theme="dark" />
         </body>
       </html>
     </ClerkProvider>

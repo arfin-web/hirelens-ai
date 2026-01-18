@@ -19,6 +19,7 @@ import {
 } from "@hugeicons/core-free-icons";
 import { deleteJob } from "@/app/actions/jobs";
 import { useState } from "react";
+import { toast } from "react-toastify";
 
 interface JobCardProps {
     job: {
@@ -41,9 +42,11 @@ export function JobCard({ job }: JobCardProps) {
         setDeleting(true);
         try {
             await deleteJob(job.id);
-        } catch (error) {
+            toast.success("Job deleted successfully");
+        } catch (error: unknown) {
             console.error("Failed to delete job:", error);
-            alert("Failed to delete job. Please try again.");
+            const message = error instanceof Error ? error.message : "Failed to delete job. Please try again.";
+            toast.error(message);
             setDeleting(false);
         }
     }

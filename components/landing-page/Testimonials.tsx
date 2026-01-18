@@ -40,7 +40,7 @@ export function Testimonials() {
                                     <HugeiconsIcon key={i} icon={StarIcon} className="w-5 h-5 fill-current" />
                                 ))}
                             </div>
-                            <p className="text-lg mb-8 flex-grow leading-relaxed">"{t.quote}"</p>
+                            <p className="text-lg mb-8 flex-grow leading-relaxed">&quot;{t.quote}&quot;</p>
                             <div className="flex items-center gap-4">
                                 <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center font-bold text-primary text-xl">
                                     {t.avatar}

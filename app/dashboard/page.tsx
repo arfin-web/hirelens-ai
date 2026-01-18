@@ -33,12 +33,13 @@ export default async function DashboardPage() {
     }
 
     const totalJobs = jobs?.length || 0;
-    const totalCandidates = allCandidates?.length || 0;
+    const candidates = allCandidates ?? [];
+    const totalCandidates = candidates?.length || 0;
     const averageScore = totalCandidates > 0
-        ? Math.round(allCandidates.reduce((acc, c) => acc + (c.match_score || 0), 0) / totalCandidates)
+        ? Math.round(candidates.reduce((acc, c) => acc + (c.match_score || 0), 0) / totalCandidates)
         : 0;
 
-    const recentCandidates = allCandidates?.slice(0, 5).map(c => ({
+    const recentCandidates = candidates?.slice(0, 5).map(c => ({
         ...c,
         job_title: c.jobs?.title
     })) || [];

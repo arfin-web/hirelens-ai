@@ -9,6 +9,7 @@ import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { analyzeAndCreateCandidate } from "@/app/actions/candidates";
 import { HugeiconsIcon } from "@hugeicons/react";
 import { UserAdd01Icon } from "@hugeicons/core-free-icons";
+import { toast } from "react-toastify";
 
 interface AddCandidateFormProps {
     jobId: string;
@@ -29,10 +30,11 @@ export function AddCandidateForm({ jobId }: AddCandidateFormProps) {
             await analyzeAndCreateCandidate(jobId, formData);
             form.reset();
             setExpanded(false);
-            alert("Candidate analyzed and added successfully!");
-        } catch (error) {
+            toast.success("Candidate analyzed and added successfully!");
+        } catch (error: unknown) {
             console.error("Failed to add candidate:", error);
-            alert("Failed to add candidate. Please check your API keys and try again.");
+            const message = error instanceof Error ? error.message : "Failed to add candidate. Please check your API keys and try again.";
+            toast.error(message);
         } finally {
             setLoading(false);
         }

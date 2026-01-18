@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { AddCandidateForm } from "@/components/dashboard/AddCandidateForm";
 import { CandidateList } from "@/components/dashboard/CandidateList";
+import { RankingDialog } from "@/components/dashboard/RankingDialog";
 import { HugeiconsIcon } from "@hugeicons/react";
 import { ArrowLeft01Icon, LocationIcon } from "@hugeicons/core-free-icons";
 
@@ -85,7 +86,10 @@ export default async function JobDetailsPage({ params }: PageProps) {
 
             {/* Add Candidate Form */}
             <div>
-                <h2 className="text-2xl font-bold mb-4">Candidates</h2>
+                <div className="flex items-center justify-between mb-4">
+                    <h2 className="text-2xl font-bold">Candidates</h2>
+                    <RankingDialog candidates={candidates || []} />
+                </div>
                 <AddCandidateForm jobId={id} />
             </div>
 

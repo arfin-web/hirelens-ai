@@ -6,7 +6,6 @@ import { HugeiconsIcon } from "@hugeicons/react";
 import {
   BriefcaseIcon,
   Home01Icon,
-  Settings01Icon,
   LogoutSquare01Icon,
   AiBrain03Icon
 } from "@hugeicons/core-free-icons";
@@ -15,7 +14,6 @@ import { cn } from "@/lib/utils";
 const navItems = [
   { name: "Overview", href: "/dashboard", icon: Home01Icon },
   { name: "Jobs", href: "/dashboard/jobs", icon: BriefcaseIcon },
-  { name: "Settings", href: "/dashboard/settings", icon: Settings01Icon },
 ];
 
 export function DashboardSidebar() {
@@ -52,14 +50,6 @@ export function DashboardSidebar() {
           );
         })}
       </nav>
-
-      {/* User Section */}
-      <div className="border-t border-border p-4">
-        <button className="flex w-full items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium text-muted-foreground hover:bg-muted hover:text-foreground transition-colors">
-          <HugeiconsIcon icon={LogoutSquare01Icon} size={20} />
-          Logout
-        </button>
-      </div>
     </aside>
   );
 }

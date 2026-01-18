@@ -18,6 +18,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { createJob } from "@/app/actions/jobs";
 import { HugeiconsIcon } from "@hugeicons/react";
 import { Add01Icon } from "@hugeicons/core-free-icons";
+import { toast } from "react-toastify";
 
 export function CreateJobDialog() {
     const [open, setOpen] = useState(false);
@@ -34,9 +35,11 @@ export function CreateJobDialog() {
             await createJob(formData);
             setOpen(false);
             form.reset();
-        } catch (error) {
+            toast.success("Job posted successfully!");
+        } catch (error: unknown) {
             console.error("Failed to create job:", error);
-            alert("Failed to create job. Please try again.");
+            const message = error instanceof Error ? error.message : "Failed to create job. Please try again.";
+            toast.error(message);
         } finally {
             setLoading(false);
         }
