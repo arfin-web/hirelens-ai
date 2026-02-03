@@ -14,7 +14,7 @@ export async function Navbar() {
                     <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-primary-foreground">
                         <HugeiconsIcon icon={AiBrain03Icon} size={20} />
                     </div>
-                    <span className="bg-gradient-to-br from-foreground to-muted-foreground bg-clip-text text-transparent">
+                    <span className="bg-linear-to-br from-foreground to-muted-foreground bg-clip-text text-transparent">
                         Hirelens AI
                     </span>
                 </Link>
