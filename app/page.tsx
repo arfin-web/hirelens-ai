@@ -5,6 +5,7 @@ import { HowItWorks } from "@/components/landing-page/HowItWorks";
 import { Testimonials } from "@/components/landing-page/Testimonials";
 import { CTASection } from "@/components/landing-page/CTASection";
 import { Footer } from "@/components/landing-page/Footer";
+import { ImpactSection } from "@/components/landing-page/ImpactSection";
 
 export default function Page() {
     return (
@@ -12,8 +13,9 @@ export default function Page() {
             <Navbar />
             <main className="flex flex-col">
                 <Hero />
-                <Features />
+                <ImpactSection />
                 <HowItWorks />
+                <Features />
                 <Testimonials />
                 <CTASection />
             </main>
