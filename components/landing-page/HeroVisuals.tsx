@@ -10,7 +10,7 @@ export function HeroVisuals() {
                     width={500}
                     height={500}
                     priority
-                    className="object-cover rounded-2xl"
+                    className="object-right rounded-2xl"
                 />
             </div>
         </div>
