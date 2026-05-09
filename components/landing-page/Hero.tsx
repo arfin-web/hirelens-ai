@@ -16,7 +16,7 @@ export async function Hero() {
             </div>
 
             <div className="container relative z-10 mx-auto px-4 md:px-6">
-                <div className="grid md:grid-cols-2 gap-12 items-start mb-16">
+                <div className="grid md:grid-cols-2 gap-12 items-stretch mb-16">
                     {/* Left Side */}
                     <div className="text-center md:text-left">
                         <div className="inline-flex items-center rounded-full border border-border bg-background mt-16 px-3 py-1 text-sm text-muted-foreground mb-8 animate-fade-in-up">
